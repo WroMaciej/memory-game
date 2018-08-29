@@ -13,5 +13,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/WroMaciej/memory-game#readme"
+  "homepage": "https://bitbucket.org/WroMaciej/memory-game#readme",
+  "devDependencies": {
+    "karma": "^3.0.0"
+  }
 }
