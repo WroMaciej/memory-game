@@ -15,6 +15,8 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/WroMaciej/memory-game#readme",
   "devDependencies": {
-    "karma": "^3.0.0"
+    "karma": "^3.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.2"
   }
 }
