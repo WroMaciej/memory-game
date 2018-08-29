@@ -1,0 +1,27 @@
+.tile {
+  width: 400px;
+  height: 400px;
+}
+
+.tile.hidden{
+  background-color: blue;
+}
+
+.tile.correct{
+  background-color: blue;
+}
+
+.tile.wrong{
+  background-color: blue;
+}
+
+.tile {
+  width: 100px;
+  height: 100px;
+}
+
+.all-tiles{
+  width: 600px;
+  height: 600px;
+  background-color: gray;
+}
