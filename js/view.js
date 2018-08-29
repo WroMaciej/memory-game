@@ -1,2 +1,2 @@
-document.getElementById("actualLevel").value = model.level;
-document.getElementById("tilesTotal").value = model.tilesTotal();
+document.getElementById("actualLevel").value = model.getLevel();
+document.getElementById("tilesTotal").value = model.tilesToGuess();
