@@ -8,11 +8,11 @@
 }
 
 .tile.correct{
-  background-color: blue;
+  background-color: green;
 }
 
 .tile.wrong{
-  background-color: blue;
+  background-color: red;
 }
 
 .tile {

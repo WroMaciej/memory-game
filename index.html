@@ -10,22 +10,16 @@
 <body>
   <h4>Welcome to Memory Game</h1>
     <div>
+    Level:
+      <input type="number" disabled id="actualLevel">
     Tiles:
-      <input type="number" disabled id="tiles-number" value="4">
-      <button>More tiles</button>
-      <button>Less tiles</button>
+      <input type="number" disabled id="tilesTotal">
+
+      <button>Level UP</button>
+      <button>Level DOWN</button>
     </div>
 
-    <div class = "all-tiles">
-
-
-    </div>
-
-
-
-
-
-
+    <div id ="allTiles" class = "all-tiles"></div>
 
       <script src="js/controller.js"></script>
       <script src="js/model.js"></script>
