@@ -1,10 +1,62 @@
+.settings{
+  display:inline-block;
+  background-color: yellow;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
 .tile {
-  width: 400px;
-  height: 400px;
+
 }
 
 .tile.hidden{
+  background-color: darkOrange;
+}
+
+.tile.toGuess{
   background-color: blue;
+}
+
+.tile.hidden:hover{
+  /* background-color: cyan; */
+  background-color: black;
+   animation-name: color;
+   animation-duration: 2s;
+   animation-iteration-count: infinite;
+ }
+
+ @keyframes color {
+   0% {
+     background-color: black;
+   }
+   50% {
+     background-color: darkOrange;
+   }
+   100 {
+     background-color: black;
+   }
+
 }
 
 .tile.correct{
@@ -15,13 +67,12 @@
   background-color: red;
 }
 
-.tile {
-  width: 100px;
-  height: 100px;
-}
+
 
 .all-tiles{
-  width: 600px;
-  height: 600px;
+  display:flex;
+  flex-flow: row wrap;
   background-color: gray;
+  margin-left: auto;
+  margin-right: auto;
 }

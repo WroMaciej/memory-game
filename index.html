@@ -8,24 +8,39 @@
 
 
 <body>
-  <h4>Welcome to Memory Game</h1>
-    <div>
-    Level:
-      <input type="number" disabled id="actualLevel">
-    Tiles:
-      <input type="number" disabled id="tilesTotal">
 
-      <button onclick="controller.levelUp()">Level UP</button>
-      <button onclick="controller.levelDown()">Level DOWN</button>
-      <button onclick="controller.restartLevel()">HIGHLIGHT</button>
+    <div class = "settings">
+      <h4>Welcome to Memory Game</h1>
+        <div>
+          Level:
+            <input type="number" disabled id="actualLevel">
+        </div>
+        <div>
+        </div>
+        Tiles:
+          <input type="number" disabled id="tilesTotal">
+        </div>
+
+        <div>
+          <button class ="button" onclick="controller.levelUp()">Level UP</button>
+          <button class ="button" onclick="controller.levelDown()">Level DOWN</button>
+          <button class ="button" onclick="controller.restartLevel()">HIGHLIGHT</button>
+        </div>
+    <div>
+
+
+
+
     </div>
 
     <div id ="allTiles" class = "all-tiles"></div>
 
 
       <script src="js/model.js"></script>
-      <script src="js/controller.js"></script>
       <script src="js/view.js"></script>
+      <script src="js/controller.js"></script>
+
+      <script>controller.restartLevel();</script>
 </body>
 
 

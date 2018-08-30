@@ -3,6 +3,7 @@ var controller = (function() {
 
   var startLevel = function(newLevel) {
     model.setLevel(newLevel);
+    model.generateLevel();
     view.newLevel();
 
 
