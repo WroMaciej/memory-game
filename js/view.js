@@ -43,13 +43,16 @@ var view = (function() {
 
     },
 
-    newLevel = function(actualLevel, totalTiles, side, tileTypeById, onClickFunction) {
+    newLevel = function(actualLevel, totalTiles, side, tileTypeById, onClickFunction, unblockViewTrigger) {
       document.getElementById("actualLevel").value = new Number(actualLevel);
       document.getElementById("tilesTotal").value = new Number(totalTiles);
       generateTiles(true, totalTiles, side, tileTypeById, onClickFunction);
       setTimeout(function(){
-        generateTiles(false, totalTiles, side, tileTypeById, onClickFunction);}
+        generateTiles(false, totalTiles, side, tileTypeById, onClickFunction);
+        unblockViewTrigger();
+      }
         , hightlightTime*1000);
+
     };
 
   return {
