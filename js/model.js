@@ -1,14 +1,18 @@
 var model = (function() {
 
   var level = 1,
-    tilesCorrect = 0,
+    tilesCorrectNumber = 0,
     highlightTime = 2,
+    tilesToGuess = [],
+
+
+
 
     side = function() {
       return level + 1;
     },
 
-    tilesTotal = function() {
+    tilesTotalNumber = function() {
       return side() * side();
     },
 
@@ -20,15 +24,15 @@ var model = (function() {
       level = newLevel;
     },
 
-    tilesToGuess = function() {
-      return tilesTotal();
+    tilesToGuessNumber = function() {
+      return tilesTotalNumber();
     };
 
   return {
     getLevel: getLevel,
     setLevel: setLevel,
     side: side,
-    tilesToGuess: tilesToGuess
+    tilesToGuessNumber: tilesToGuessNumber
   }
 
 

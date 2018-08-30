@@ -1,7 +1,7 @@
 var view = (function() {
 
 
-  var viewSize = 800,
+  var viewSize = window.innerWidth,
   margin = 10,
 
   tileSize = function(){
@@ -11,7 +11,11 @@ var view = (function() {
   newLevel = function(){
     document.getElementById("actualLevel").value = model.getLevel();
     document.getElementById("tilesTotal").value = model.tilesToGuess();
-  }
+  },
+
+  showTiles = funtion(){
+
+  };
 
 
   return{
