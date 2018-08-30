@@ -9,22 +9,24 @@ var controller = (function() {
 
   },
 
-  restartLevel = funtion(){
-    startLevel(model.getLevel);
+  restartLevel = function(){
+    startLevel(model.getLevel());
   },
 
   levelUp = function() {
-      startLevel(model.getLevel + 1);
+      startLevel(model.getLevel() + 1);
     },
 
     levelDown = function() {
-      startLevel(model.getLevel - 1);
+      if (model.getLevel() > 1){
+        startLevel(model.getLevel() - 1);
+      }
     },
 
-    guess = funtion(event) {
+    guess = function(event) {
       tile = event.target;
 
-    },
+    };
 
 
 

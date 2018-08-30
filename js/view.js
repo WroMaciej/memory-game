@@ -2,24 +2,23 @@ var view = (function() {
 
 
   var viewSize = window.innerWidth,
-  margin = 10,
+    margin = 10,
 
-  tileSize = function(){
-    return ( viewSize - ((model.side()+1)*margin)) ) / model.side();
-  },
+    tileSize = function() {
+      return (viewSize - ((model.side() + 1) * margin)) / model.side();
+    },
 
-  newLevel = function(){
-    document.getElementById("actualLevel").value = model.getLevel();
-    document.getElementById("tilesTotal").value = model.tilesToGuess();
-  },
+    showTiles = function() {
 
-  showTiles = funtion(){
+    },
 
-  };
-
-
-  return{
-    newLevel : newLevel
+    newLevel = function() {
+      document.getElementById("actualLevel").value = new Number(model.getLevel());
+      document.getElementById("tilesTotal").value = new Number(model.tilesTotalNumber());
+    };
+    
+  return {
+    newLevel: newLevel
   }
 
 })()

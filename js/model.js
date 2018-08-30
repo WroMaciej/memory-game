@@ -22,17 +22,14 @@ var model = (function() {
 
     setLevel = function(newLevel) {
       level = newLevel;
-    },
-
-    tilesToGuessNumber = function() {
-      return tilesTotalNumber();
     };
+
 
   return {
     getLevel: getLevel,
     setLevel: setLevel,
     side: side,
-    tilesToGuessNumber: tilesToGuessNumber
+    tilesTotalNumber:tilesTotalNumber
   }
 
 
