@@ -6,48 +6,48 @@ var view = (function() {
     hightlightTime = 4,
 
 
-  singleMarginPx = function() {
-    return (viewSize * (marginPercentage / 100)) / (2 * model.side());
+  singleMarginPx = function(side) {
+    return (viewSize * (marginPercentage / 100)) / (2 * side);
   }
 
 
 
-  tileSize = function() {
-      return (viewSize / model.side()) - 2 * singleMarginPx();
+  tileSize = function(side) {
+      return (viewSize / side) - 2 * singleMarginPx(side);
     },
 
-    addTile = function(tileId, isHighlighting) {
+    addTile = function(tileId, isHighlighting, tileType, side) {
       var parent = document.getElementById("allTiles");
       var div = document.createElement("DIV");
       div.className = 'tile';
       if (isHighlighting == true) {
-        div.classList.add(model.getTileTypeById(tileId));
+        div.classList.add(tileType);
       } else {
         div.classList.add('hidden');
       }
-      div.style.margin = singleMarginPx() + "px";
+      div.style.margin = singleMarginPx(side) + "px";
       div.id = tileId;
-      div.style.width = tileSize() + "px";
-      div.style.height = tileSize() + "px";
+      div.style.width = tileSize(side) + "px";
+      div.style.height = tileSize(side) + "px";
       parent.style.width = viewSize + "px";
       parent.style.height = viewSize + "px";
       parent.appendChild(div);
     },
 
-    generateTiles = function(isHighlighting) {
+    generateTiles = function(isHighlighting, totalTiles, side, tileTypeById) {
       var parent = document.getElementById("allTiles").textContent = '';
-      for (var i = 1; i <= model.tilesTotalNumber(); i++) {
-        addTile(i, isHighlighting);
+      for (var i = 1; i <= totalTiles; i++) {
+        addTile(i, isHighlighting, tileTypeById(i), side);
       }
 
     },
 
-    newLevel = function() {
-      document.getElementById("actualLevel").value = new Number(model.getLevel());
-      document.getElementById("tilesTotal").value = new Number(model.tilesTotalNumber());
-      generateTiles(true);
+    newLevel = function(actualLevel, totalTiles, side, tileTypeById) {
+      document.getElementById("actualLevel").value = new Number(actualLevel);
+      document.getElementById("tilesTotal").value = new Number(totalTiles);
+      generateTiles(true, totalTiles, side, tileTypeById);
       setTimeout(function(){
-        generateTiles(false);}
+        generateTiles(false, totalTiles, side, tileTypeById);}
         , hightlightTime*1000);
     };
 

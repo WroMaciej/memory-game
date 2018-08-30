@@ -4,7 +4,7 @@ var controller = (function() {
   var startLevel = function(newLevel) {
     model.setLevel(newLevel);
     model.generateLevel();
-    view.newLevel();
+    view.newLevel(model.getLevel(), model.tilesTotalNumber(), model.side(), model.getTileTypeById);
 
 
 
