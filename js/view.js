@@ -3,7 +3,7 @@ var view = (function() {
 
   var viewSize = window.innerWidth / 3,
     marginPercentage = 10,
-    hightlightTime = 4,
+    hightlightTime = 3,
 
 
   singleMarginPx = function(side) {
@@ -16,7 +16,7 @@ var view = (function() {
       return (viewSize / side) - 2 * singleMarginPx(side);
     },
 
-    addTile = function(tileId, isHighlighting, tileType, side) {
+    addTile = function(tileId, isHighlighting, tileType, side, onClickFunction) {
       var parent = document.getElementById("allTiles");
       var div = document.createElement("DIV");
       div.className = 'tile';
@@ -29,25 +29,26 @@ var view = (function() {
       div.id = tileId;
       div.style.width = tileSize(side) + "px";
       div.style.height = tileSize(side) + "px";
+      div.onclick = onClickFunction;
       parent.style.width = viewSize + "px";
       parent.style.height = viewSize + "px";
       parent.appendChild(div);
     },
 
-    generateTiles = function(isHighlighting, totalTiles, side, tileTypeById) {
+    generateTiles = function(isHighlighting, totalTiles, side, tileTypeById, onClickFunction) {
       var parent = document.getElementById("allTiles").textContent = '';
       for (var i = 1; i <= totalTiles; i++) {
-        addTile(i, isHighlighting, tileTypeById(i), side);
+        addTile(i, isHighlighting, tileTypeById(i), side, onClickFunction);
       }
 
     },
 
-    newLevel = function(actualLevel, totalTiles, side, tileTypeById) {
+    newLevel = function(actualLevel, totalTiles, side, tileTypeById, onClickFunction) {
       document.getElementById("actualLevel").value = new Number(actualLevel);
       document.getElementById("tilesTotal").value = new Number(totalTiles);
-      generateTiles(true, totalTiles, side, tileTypeById);
+      generateTiles(true, totalTiles, side, tileTypeById, onClickFunction);
       setTimeout(function(){
-        generateTiles(false, totalTiles, side, tileTypeById);}
+        generateTiles(false, totalTiles, side, tileTypeById, onClickFunction);}
         , hightlightTime*1000);
     };
 
