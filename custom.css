@@ -19,6 +19,15 @@ input {
   width: 50%;
 }
 
+.statistics {
+  display: block;
+  background-color: Red ;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 .buttons-holder {
   display: block;
   align-items: center;

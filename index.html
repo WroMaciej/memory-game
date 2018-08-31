@@ -9,8 +9,8 @@
 
 <body>
 
-    <div class = "settings">
-      <h4>Welcome to Memory Game</h1>
+  <div class="settings">
+    <h4>Welcome to Memory Game</h1>
         <div>
           Level:
             <input type="number" disabled id="actualLevel">
@@ -21,17 +21,32 @@
           <input type="number" disabled id="tilesTotal">
         </div>
 
+        <div class="statistics">
+          <div>
+           Hits:
+              <p id="hits">HITS</p>
+          </div>
+          <div>
+          Misses:
+              <p id="misses">MISSES</p>
+          </div>
+          <div>
+           Total Shots:
+              <p id="totalShots">TOTAL SHOTS</p>
+          </div>
+          <div>
+            Efficency:
+              <p id="efficiency">EFFICIENCY</p>
+          </div>
+
+        </div>
+
         <div class = "buttons-holder">
           <button class ="button" onclick="controller.levelUp()">Level UP</button>
           <button class ="button" onclick="controller.levelDown()">Level DOWN</button>
           <button class ="button" onclick="controller.restartLevel()">HIGHLIGHT</button>
         </div>
-    <div>
 
-
-
-
-    </div>
 
     <div id ="allTiles" class = "all-tiles"></div>
 

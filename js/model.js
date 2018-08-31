@@ -41,10 +41,6 @@ var model = (function() {
       }
     },
 
-    totalShots = function() {
-      return hits + misses;
-    },
-
     getHits = function() {
       return hits;
     },
@@ -66,8 +62,13 @@ var model = (function() {
     },
 
     acceptHit = function(tileId){
+        hits = hits + 1;
         tilesToGuess.splice(tilesToGuess.indexOf(parseInt(tileId)), 1);
     };
+
+    rejectHit = function(){
+      misses = misses + 1;
+    }
 
 
   return {
@@ -77,11 +78,11 @@ var model = (function() {
     tilesTotalNumber: tilesTotalNumber,
     getTileTypeById: getTileTypeById,
     generateLevel: generateLevel,
-    misses: misses,
-    hits: hits,
-    totalShots: totalShots,
+    getMisses: getMisses,
+    getHits: getHits,
     isHit: isHit,
     acceptHit: acceptHit,
+    rejectHit: rejectHit,
     isAllGuessed: isAllGuessed
   }
 

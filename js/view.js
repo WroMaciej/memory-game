@@ -7,17 +7,15 @@ var view = (function() {
     hightlightTime = 3,
 
 
-  singleMarginPx = function(side) {
-    return (viewSize * (marginPercentage / 100)) / (2 * side);
-  },
+    singleMarginPx = function(side) {
+      return (viewSize * (marginPercentage / 100)) / (2 * side);
+    },
 
-  borderRadiusPx = function(side) {
-    return tileSize(side) * (borderRadiusPercentage/100);
-  },
+    borderRadiusPx = function(side) {
+      return tileSize(side) * (borderRadiusPercentage / 100);
+    },
 
-
-
-  tileSize = function(side) {
+    tileSize = function(side) {
       return (viewSize / side) - 2 * singleMarginPx(side);
     },
 
@@ -53,17 +51,32 @@ var view = (function() {
       document.getElementById("actualLevel").value = new Number(actualLevel);
       document.getElementById("tilesTotal").value = new Number(totalTiles);
       generateTiles(true, totalTiles, side, tileTypeById, onClickFunction);
-      setTimeout(function(){
+      setTimeout(function() {
         generateTiles(false, totalTiles, side, tileTypeById, onClickFunction);
         unblockViewTrigger();
-      }
-        , hightlightTime*1000);
+      }, hightlightTime * 1000);
 
+    },
+
+    refreshStatistics = function(hits, misses){
+      var efficiency, total;
+       total = parseInt(hits+misses);
+        document.getElementById("hits").innerHTML = hits;
+        document.getElementById("misses").innerHTML = misses;
+        document.getElementById("totalShots").innerHTML = total;
+        if (total > 0 ){
+          efficiency = Math.round(((hits / total) * 100));
+        }
+        else{
+          efficiency = 0;
+        }
+        document.getElementById("efficiency").innerHTML = efficiency + "%";
     };
 
   return {
     newLevel: newLevel,
-    tileSize: tileSize
+    tileSize: tileSize,
+    refreshStatistics: refreshStatistics
   }
 
 })()

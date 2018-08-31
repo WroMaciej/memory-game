@@ -1,6 +1,6 @@
 var controller = (function() {
   var isViewBlocked = false,
-  blockTime = 1.5,
+    blockTime = 1.5,
 
 
     correctHit = function(tile) {
@@ -11,17 +11,22 @@ var controller = (function() {
         setTimeout(function() {
           unblockView();
           levelUp();
-        }, blockTime*1000);
+        }, blockTime * 1000);
       }
     },
 
     wrongHit = function(tile) {
       tile.className = 'tile wrong';
+      model.rejectHit();
       blockView();
       setTimeout(function() {
         unblockView();
         restartLevel();
-      }, blockTime*1000);
+      }, blockTime * 1000);
+    },
+
+    refreshStatistics = function(){
+      view.refreshStatistics(model.getHits(), model.getMisses());
     },
 
     guess = function(event) {
@@ -37,6 +42,7 @@ var controller = (function() {
       } else {
         wrongHit(tile);
       }
+      refreshStatistics();
 
     },
 
@@ -57,6 +63,7 @@ var controller = (function() {
       model.setLevel(newLevel);
       model.generateLevel();
       view.newLevel(model.getLevel(), model.tilesTotalNumber(), model.side(), model.getTileTypeById, guess, unblockView);
+      refreshStatistics();
     },
 
     restartLevel = function() {
@@ -65,6 +72,7 @@ var controller = (function() {
 
     levelUp = function() {
       startLevel(model.getLevel() + 1);
+
     },
 
     levelDown = function() {
@@ -79,13 +87,8 @@ var controller = (function() {
     guess: guess,
     restartLevel: restartLevel,
     startLevel: startLevel
-
-
   }
 
-
-
-
-})()
+})();
 
 controller.restartLevel();
