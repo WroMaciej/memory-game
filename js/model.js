@@ -3,7 +3,6 @@ var model = (function() {
   var level = 1,
     misses = 0,
     hits = 0,
-    shots = 0,
     tilesToGuess = [],
 
     side = function() {
@@ -35,11 +34,39 @@ var model = (function() {
     generateLevel = function() {
       tilesToGuess.length = 0;
       while (tilesToGuess.length < totalTilesToGuessNumber()) {
-        var randomId = Math.floor(Math.random() * (tilesTotalNumber()) )+1;
+        var randomId = Math.floor(Math.random() * (tilesTotalNumber())) + 1;
         if (!tilesToGuess.includes(randomId)) {
           tilesToGuess.push(randomId);
         }
       }
+    },
+
+    totalShots = function() {
+      return hits + misses;
+    },
+
+    getHits = function() {
+      return hits;
+    },
+
+    getMisses = function() {
+      return misses;
+    },
+
+    isHit = function(tileId) {
+      if (tilesToGuess.includes(tileId)) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+
+    isAllGuessed = function(){
+      return tilesToGuess.length == 0;
+    },
+
+    acceptHit = function(tileId){
+        tilesToGuess.splice(tilesToGuess.indexOf(parseInt(tileId)), 1);
     };
 
 
@@ -50,7 +77,12 @@ var model = (function() {
     tilesTotalNumber: tilesTotalNumber,
     getTileTypeById: getTileTypeById,
     generateLevel: generateLevel,
-    tilesToGuess: tilesToGuess
+    misses: misses,
+    hits: hits,
+    totalShots: totalShots,
+    isHit: isHit,
+    acceptHit: acceptHit,
+    isAllGuessed: isAllGuessed
   }
 
 

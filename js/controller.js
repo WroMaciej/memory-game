@@ -1,13 +1,26 @@
 var controller = (function() {
   var isViewBlocked = false,
 
-  goodHit = function(){
+    correctHit = function(tile) {
+      tile.className = 'tile correct';
+      model.acceptHit(tile.id);
+      if (model.isAllGuessed()) {
+        blockView();
+        setTimeout(function() {
+          unblockView();
+          levelUp();
+        }, 1500);
+      }
+    },
 
-  }
-
-  wrongHit = function(){
-    
-  }
+    wrongHit = function(tile) {
+      tile.className = 'tile wrong';
+      blockView();
+      setTimeout(function() {
+        unblockView();
+        restartLevel();
+      }, 1500);
+    },
 
     guess = function(event) {
       var element, tile, tileId;
@@ -17,37 +30,24 @@ var controller = (function() {
       element = event.target;
       tile = document.getElementById(event.target.id);
       tileId = parseInt(tile.id);
-      if (model.tilesToGuess.includes(tileId)) {
-        tile.className = 'tile correct';
-        model.tilesToGuess.splice(model.tilesToGuess.indexOf(tileId), 1);
-        if (model.tilesToGuess.length == 0) {
-          blockView();
-          setTimeout(function() {
-            unblockView();
-            levelUp();
-          }, 1500);
-        }
+      if (model.isHit(tileId)) {
+        correctHit(tile);
       } else {
-        tile.className = 'tile wrong';
-        blockView();
-        setTimeout(function() {
-          unblockView();
-          restartLevel();
-        }, 1500);
+        wrongHit(tile);
       }
 
     },
 
     blockView = function() {
       isViewBlocked = true;
-    }
+    },
 
-  unblockView = function() {
-    isViewBlocked = false;
-  }
+    unblockView = function() {
+      isViewBlocked = false;
+    },
 
 
-  startLevel = function(newLevel) {
+    startLevel = function(newLevel) {
       if (isViewBlocked) {
         return;
       }
