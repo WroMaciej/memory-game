@@ -3,12 +3,17 @@ var view = (function() {
 
   var viewSize = window.innerWidth / 3,
     marginPercentage = 10,
+    borderRadiusPercentage = 5,
     hightlightTime = 3,
 
 
   singleMarginPx = function(side) {
     return (viewSize * (marginPercentage / 100)) / (2 * side);
-  }
+  },
+
+  borderRadiusPx = function(side) {
+    return tileSize(side) * (borderRadiusPercentage/100);
+  },
 
 
 
@@ -29,6 +34,7 @@ var view = (function() {
       div.id = tileId;
       div.style.width = tileSize(side) + "px";
       div.style.height = tileSize(side) + "px";
+      div.style.borderRadius = borderRadiusPx(side) + "px";
       div.onclick = onClickFunction;
       parent.style.width = viewSize + "px";
       parent.style.height = viewSize + "px";
