@@ -20,7 +20,8 @@ input {
 }
 
 .statistics {
-  display: block;
+  display:block;
+  align-items: center;
   background-color: Red ;
   border-radius: 10px;
   margin-left: auto;
