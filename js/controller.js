@@ -1,5 +1,7 @@
 var controller = (function() {
   var isViewBlocked = false,
+  blockTime = 1.5,
+
 
     correctHit = function(tile) {
       tile.className = 'tile correct';
@@ -9,7 +11,7 @@ var controller = (function() {
         setTimeout(function() {
           unblockView();
           levelUp();
-        }, 1500);
+        }, blockTime*1000);
       }
     },
 
@@ -19,7 +21,7 @@ var controller = (function() {
       setTimeout(function() {
         unblockView();
         restartLevel();
-      }, 1500);
+      }, blockTime*1000);
     },
 
     guess = function(event) {
@@ -85,3 +87,5 @@ var controller = (function() {
 
 
 })()
+
+controller.restartLevel();
