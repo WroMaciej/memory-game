@@ -14,7 +14,7 @@ var controller = (function() {
         tile.className = 'tile correct';
         model.tilesToGuess.splice(model.tilesToGuess.indexOf(tileId), 1);
         if (model.tilesToGuess.length == 0) {
-          isViewBlocked = true;
+          blockView();
           setTimeout(function() {
             unblockView();
             levelUp();
@@ -22,13 +22,18 @@ var controller = (function() {
         }
       } else {
         tile.className = 'tile wrong';
-        isViewBlocked = true;
+        blockView();
         setTimeout(function() {
+          unblockView();
           restartLevel();
         }, 1500);
       }
 
     },
+
+    blockView = function(){
+      isViewBlocked = true;
+    }
 
     unblockView= function(){
       isViewBlocked = false;
@@ -39,7 +44,7 @@ var controller = (function() {
       if (isViewBlocked) {
         return;
       }
-      isViewBlocked = true;
+      blockView();
       model.setLevel(newLevel);
       model.generateLevel();
       view.newLevel(model.getLevel(), model.tilesTotalNumber(), model.side(), model.getTileTypeById, guess, unblockView);

@@ -1,12 +1,7 @@
 var model = (function() {
 
   var level = 1,
-    tilesCorrectNumber = 0,
     tilesToGuess = [],
-    tilesGuessed = [],
-
-
-
 
     side = function() {
       return level + 1;
@@ -36,7 +31,6 @@ var model = (function() {
 
     generateLevel = function() {
       tilesToGuess.length = 0;
-      tilesGuessed.length = 0;
       while (tilesToGuess.length < totalTilesToGuessNumber()) {
         var randomId = Math.floor(Math.random() * (tilesTotalNumber()) )+1;
         if (!tilesToGuess.includes(randomId)) {
