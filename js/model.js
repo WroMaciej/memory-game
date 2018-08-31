@@ -1,6 +1,9 @@
 var model = (function() {
 
   var level = 1,
+    misses = 0,
+    hits = 0,
+    shots = 0,
     tilesToGuess = [],
 
     side = function() {

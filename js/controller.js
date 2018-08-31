@@ -1,6 +1,13 @@
 var controller = (function() {
   var isViewBlocked = false,
 
+  goodHit = function(){
+
+  }
+
+  wrongHit = function(){
+    
+  }
 
     guess = function(event) {
       var element, tile, tileId;
@@ -31,16 +38,16 @@ var controller = (function() {
 
     },
 
-    blockView = function(){
+    blockView = function() {
       isViewBlocked = true;
     }
 
-    unblockView= function(){
-      isViewBlocked = false;
-    }
+  unblockView = function() {
+    isViewBlocked = false;
+  }
 
 
-    startLevel = function(newLevel) {
+  startLevel = function(newLevel) {
       if (isViewBlocked) {
         return;
       }
@@ -63,11 +70,6 @@ var controller = (function() {
         startLevel(model.getLevel() - 1);
       }
     };
-
-
-
-
-
 
   return {
     levelUp: levelUp,
