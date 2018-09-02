@@ -22,7 +22,9 @@ var model = (function() {
     },
 
     setLevel = function(newLevel) {
-      level = newLevel;
+      if (newLevel > 0){
+        level = newLevel;
+      }
     },
     getTileTypeById = function(tileId) {
       if (tilesToGuess.includes(tileId)) {
