@@ -38,7 +38,7 @@ describe('tests for model', function() {
 
   it('should return random tiles to guess after generating new level', function() {
     // given
-    var levelToGenerate = 20, //To increase probability that random function return different results
+    var levelToGenerate = 50, //To increase probability that random function return different results
     tilesToGuessNumber = levelToGenerate + 1,
     tilesTotalNumber = tilesToGuessNumber * tilesToGuessNumber,
     tilesToGuess1 = [],
