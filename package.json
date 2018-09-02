@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start"
   },
   "repository": {
     "type": "git",
@@ -15,8 +15,13 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/WroMaciej/memory-game#readme",
   "devDependencies": {
+    "jasmine-core": "^3.2.1",
     "karma": "^3.0.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.2"
+  },
+  "dependencies": {
+    "karma-phantomjs-launcher": "^1.0.4",
+    "phantomjs-prebuilt": "^2.1.16"
   }
 }
