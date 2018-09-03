@@ -60,7 +60,7 @@ var view = (function() {
 
     refreshStatistics = function(hits, misses){
       var efficiency, total;
-       total = parseInt(hits+misses);
+       total = parseInt(parseInt(hits)+parseInt(misses));
         document.getElementById("hits").innerHTML = hits;
         document.getElementById("misses").innerHTML = misses;
         document.getElementById("totalShots").innerHTML = total;
