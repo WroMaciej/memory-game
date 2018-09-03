@@ -8,6 +8,10 @@ describe('tests for controller', function() {
     spyOn(model, 'getLevel').and.returnValue(10);
   });
 
+  afterEach(function(){
+    controller.unblockView();
+  })
+
   it('should set model level after start new given level', function() {
     // given
     var newLevel = 10;

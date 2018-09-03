@@ -85,7 +85,8 @@ var controller = (function() {
     levelDown: levelDown,
     guess: guess,
     restartLevel: restartLevel,
-    startLevel: startLevel
+    startLevel: startLevel,
+    unblockView: unblockView
   }
 
 })();
