@@ -1,10 +1,12 @@
 describe('tests for controller', function() {
+  var getLevelSpy;
 
   beforeAll(function() {
     spyOn(view, 'newLevel');
     spyOn(view, 'refreshStatistics');
     spyOn(model, 'setLevel');
     spyOn(model, 'generateLevel');
+    spyOn(model, 'getLevel').and.returnValue(10);
   });
 
   it('should set model level after start new given level', function() {
@@ -20,9 +22,7 @@ describe('tests for controller', function() {
 
   it('should start next level when level up', function() {
     // given
-    var oldLevel = 9,
-    expectedNewLevel = 10;
-    spyOn(model, 'getLevel').and.returnValue(oldLevel);
+    var expectedNewLevel = 11;
     // when
     controller.levelUp();
     // then
@@ -33,15 +33,14 @@ describe('tests for controller', function() {
 
   it('should start same level when restart', function() {
     // given
-    var oldLevel = 9,
-    expectedNewLevel = oldLevel;
-    spyOn(model, 'getLevel').and.returnValue(oldLevel);
-    spyOn(controller, 'startLevel');
+    var expectedNewLevel = 10;
     // when
     controller.restartLevel();
     // then
-    expect(controller.startLevel).toHaveBeenCalledWith(expectedNewLevel);
+    expect(model.setLevel).toHaveBeenCalledWith(expectedNewLevel);
   });
+
+
 
 
 });
