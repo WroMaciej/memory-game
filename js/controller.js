@@ -90,5 +90,3 @@ var controller = (function() {
   }
 
 })();
-
-controller.restartLevel();

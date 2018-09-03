@@ -20,9 +20,16 @@ describe('tests for controller', function() {
   //view = jasmine.createSpy('view',  ['newLevel','refreshStatistics']);
   //model = jasmine.createSpyObj('view',  ['newLevel','refreshStatistics']);
   spyOn(view, 'newLevel').and.callFake(function(){});
-  spyOn(view, 'refreshStatistics').and.callFake(function(){});
+  spyOn(view, 'refreshStatistics').and.callFake(function(){return true;});
   spyOn(model, 'setLevel').and.callFake(function(){});
   spyOn(model, 'generateLevel').and.callFake(function(){});
+
+  // spyOn(view, 'newLevel').and.callThrough();
+  // spyOn(view, 'refreshStatistics').and.callThrough();
+  // spyOn(model, 'setLevel').and.callThrough();
+  // spyOn(model, 'generateLevel').and.callThrough();
+
+
   //view.newLevel.and.callFake(function(){});
   //view.refreshStatistics.and.callFake(function(){});
   //view.and.callFake(function(){});
