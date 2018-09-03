@@ -30,11 +30,26 @@ describe('tests for view', function() {
     // when
     view.refreshStatistics(hits, misses);
     // then
-    fakeHits = document.getElementById("hits");
     expect(document.getElementById("hits").innerHTML).toBe(hits);
     expect(document.getElementById("misses").innerHTML).toBe(misses);
     expect(document.getElementById("totalShots").innerHTML).toBe(total);
     expect(document.getElementById("efficiency").innerHTML).toBe(efficiency);
+  });
+
+  it('should show correct level and correct number of tiles should be shown', function() {
+    // given
+    var actualLevel = '9',
+    totalTiles = '100',
+    side = 10,
+    tileTypeById = function(id){return "hidden"},
+    onClickFunction,
+    unblockViewTrigger;
+    // when
+    view.newLevel(actualLevel, totalTiles, side, tileTypeById, onClickFunction, unblockViewTrigger);
+    // then
+    expect(document.getElementById("actualLevel").value).toBe(actualLevel);
+    expect(document.getElementById("tilesTotal").value).toBe(totalTiles);
+    expect(document.getElementById("allTiles").childElementCount).toBe(parseInt(totalTiles));
   });
 
 });
