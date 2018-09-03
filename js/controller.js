@@ -58,7 +58,7 @@ var controller = (function() {
     startLevel = function(newLevel) {
       if (isViewBlocked) {
         return;
-      }
+      };
       blockView();
       model.setLevel(newLevel);
       model.generateLevel();
@@ -72,7 +72,6 @@ var controller = (function() {
 
     levelUp = function() {
       startLevel(model.getLevel() + 1);
-
     },
 
     levelDown = function() {
