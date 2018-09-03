@@ -1,5 +1,4 @@
 describe('tests for controller', function() {
-  var getLevelSpy;
 
   beforeAll(function() {
     spyOn(view, 'newLevel');
@@ -28,6 +27,7 @@ describe('tests for controller', function() {
     // then
     expect(model.generateLevel).toHaveBeenCalled();
     expect(model.setLevel).toHaveBeenCalledWith(expectedNewLevel);
+    //expect(model.setLevel.calls.mostRecent().args[0]).toBe(expectedNewLevel);
     expect(view.newLevel).toHaveBeenCalled();
   });
 
