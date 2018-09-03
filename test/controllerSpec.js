@@ -3,12 +3,31 @@ describe('tests for controller', function() {
 
   it('should set model level after start new given level', function() {
     // given
-    var newLevel = 10,
+    var newLevel = 10;
     //model = createSpy().and.callFake(model);
     //view = createSpy().and.callFake(view);
-    view = createSpy('viewSpy', view).and.callThrough();
+    //view = createSpy('viewSpy', view).and.callFake();
     //modelSpy = jasmine.createSpyObj('model',['setLevel', 'generateLevel']),
-    //viewSpy = jasmine.createSpyObj('view', ['newLevel','refreshStatistics']);
+    //view = jasmine.createSpyObj('view', ['newLevel','refreshStatistics']);
+  //  view = spyOn(window, ['newLevel','refreshStatistics']);
+  //spyOn(window, 'view.newLevel');
+  //spyOn(view, 'newLevel').and.callFake(function(){});
+    //spyOn(view, 'refreshStatistics').and.callFake(function(){});
+  //view = jasmine.createSpy().and.callFake(function(){});
+//viewSpy = {};
+
+
+  //view = jasmine.createSpy('view',  ['newLevel','refreshStatistics']);
+  //model = jasmine.createSpyObj('view',  ['newLevel','refreshStatistics']);
+  spyOn(view, 'newLevel').and.callFake(function(){});
+  spyOn(view, 'refreshStatistics').and.callFake(function(){});
+  spyOn(model, 'setLevel').and.callFake(function(){});
+  spyOn(model, 'generateLevel').and.callFake(function(){});
+  //view.newLevel.and.callFake(function(){});
+  //view.refreshStatistics.and.callFake(function(){});
+  //view.and.callFake(function(){});
+    //view.newLevel.and.callFake(function(){});
+    //view.refreshStatistics.and.callFake(function(){});
       // modelSetLevelSpy = spyOn(model, 'setLevel'),
       // modelGenerateLevelSpy = spyOn(model, 'generateLevel'),
        //viewNewLevelSpy = spyOn(view, 'newLevel').and.returnValue(null),
@@ -16,7 +35,7 @@ describe('tests for controller', function() {
     // when
     controller.startLevel(newLevel);
     // then
-    expect(modelSpy.setLevel()).toHaveBeenCalled();
+    expect(view.newLevel).toHaveBeenCalled();
     //expect(modelSetLevelSpy).toHaveBeenCalled();
   });
 
