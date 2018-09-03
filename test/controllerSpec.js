@@ -1,4 +1,5 @@
 describe('tests for controller', function() {
+  var fakeTile;
 
   beforeAll(function() {
     spyOn(view, 'newLevel');
@@ -6,9 +7,15 @@ describe('tests for controller', function() {
     spyOn(model, 'setLevel');
     spyOn(model, 'generateLevel');
     spyOn(model, 'getLevel').and.returnValue(10);
+    spyOn(model, 'isHit');
+    spyOn(event, 'target');
+    //spyOn(event.target, 'id');
+    fakeTile = document.createElement("DIV");
+    fakeTile.id = 1;
+    spyOn(document, 'getElementById').and.returnValue(fakeTile);
   });
 
-  afterEach(function(){
+  afterEach(function() {
     controller.unblockView();
   })
 
@@ -42,6 +49,14 @@ describe('tests for controller', function() {
     controller.restartLevel();
     // then
     expect(model.setLevel).toHaveBeenCalledWith(expectedNewLevel);
+  });
+
+  it('should call model.isHit with int tile Id when guessing tile', function() {
+    // given on before
+    // when
+    controller.guess(event);
+    // then
+    expect(model.isHit).toHaveBeenCalledWith(parseInt(fakeTile.id));
   });
 
 

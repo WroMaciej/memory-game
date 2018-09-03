@@ -43,7 +43,6 @@ var controller = (function() {
         wrongHit(tile);
       }
       refreshStatistics();
-
     },
 
     blockView = function() {
