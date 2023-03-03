@@ -16,7 +16,7 @@
   "homepage": "https://bitbucket.org/WroMaciej/memory-game#readme",
   "devDependencies": {
     "jasmine-core": "^3.2.1",
-    "karma": "^3.0.0",
+    "karma": "^6.4.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.2"
   },
